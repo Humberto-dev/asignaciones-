@@ -8,7 +8,12 @@ emm_user_index:
 
 emm_user_add:
     path:    /user/add
-    defaults: { _controller: EMMUserBundle:User:add }        
+    defaults: { _controller: EMMUserBundle:User:add } 
+
+emm_user_create:
+    path:    /user/create
+    defaults: { _controller: EMMUserBundle:User:create }  
+    method: POST   
 
 emm_user_edit:
     path:    /user/edit/{id}

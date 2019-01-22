@@ -19,12 +19,12 @@ class UserType extends AbstractType
             ->add('lastName')
             ->add('email', 'email')
             ->add('password', 'password')
-            ->add('role', 'choise',array('choise'=>array('ROLE_ADMIN'=>'Adminstrator'),
-                                   array('ROLE_USER'=>'User'),'placeholder'=>'Select a role'))
+            ->add('role', 'choice',array('choices'=>array('ROLE_ADMIN'=>'Adminstrator',
+                        'ROLE_USER'=>'User'),'placeholder'=>'Select a role'))                       
             ->add('isActive','checkbox')
             ->add('save','submit', array('label'=>'Save user'));
     }/**
-     * {@inheritdoc}
+     * {@inheritdoc
      */
     public function configureOptions(OptionsResolver $resolver)
     {

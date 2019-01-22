@@ -13,7 +13,7 @@ emm_user_add:
 emm_user_create:
     path:    /user/create
     defaults: { _controller: EMMUserBundle:User:create }  
-    method: POST   
+    methods: POST   
 
 emm_user_edit:
     path:    /user/edit/{id}

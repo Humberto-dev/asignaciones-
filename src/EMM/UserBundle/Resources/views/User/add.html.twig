@@ -8,12 +8,12 @@
                 <div class="page-header">
                     <h2>New User</h2>
                 </div>
-                {{ form_start(form, { 'attr' : {'role' : 'form'} }) }}
+                {{ form_start(form, { 'attr' : {'novalidate':'novaidate','role' : 'form'} }) }}
 
                 <div class="form-group">
                     {{ form_label(form.username) }}
                     {{ form_widget(form.username, {'attr': {'class': 'form-control', 'placeholder': 
-                        'Your ussername'}}) }}
+                        'Your username'}}) }}
                     <span class="text-danger">{{ form_errors( form.username )}}</span>    
                 </div>
 

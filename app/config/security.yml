@@ -2,6 +2,13 @@
 # https://symfony.com/doc/current/security.html
 security:
 
+    encoders:
+        EMM\UserBundle\Entity\User:
+            algorithm: bcrypt
+            cost: 12 
+
+       
+           
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
         in_memory:
@@ -22,3 +29,4 @@ security:
 
             # https://symfony.com/doc/current/security/form_login_setup.html
             #form_login: ~
+    

@@ -27,3 +27,11 @@ emm_user_delete:
     path:    /user/delete/{id}
     defaults: { _controller: EMMUserBundle:User:delete }  
 
+emm_user_redirect_add:    
+    path: /user/create
+    defaults:
+        _controller: EMMUserBundle:User:add
+        path: /user/add
+        permanent: true
+
+     

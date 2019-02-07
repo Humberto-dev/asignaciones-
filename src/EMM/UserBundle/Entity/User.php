@@ -38,7 +38,7 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="first_name", type="string", length=100)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="User.firstName.not_blank")
      */
     private $firstName;
 
@@ -46,7 +46,7 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="last_name", type="string", length=100)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="User.lastName.not_blank")
      */
     private $lastName;
 
@@ -54,7 +54,7 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=100)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="User.email.not_blank")
      * @Assert\Email()
      */
     private $email;
@@ -63,7 +63,6 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=255)
-     * @Assert\NotBlank()
      */
     private $password;
 
@@ -71,7 +70,7 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="role", type="string", columnDefinition="ENUM('ROLE_ADMIN','ROLE_USER')", length=50)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="User.role.not_blank")
      * @Assert\Choice(choices={"ROLE_ADMIN", "ROLE_USER"})
      */
     private $role;

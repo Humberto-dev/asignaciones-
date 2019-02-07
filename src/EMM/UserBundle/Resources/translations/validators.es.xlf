@@ -6,6 +6,31 @@
                 <source>User.username.not_blank</source>
                 <target>Ingrese su nombre de usuario</target>
             </trans-unit>
+
+            <trans-unit id="2">
+                <source>User.firstName.not_blank</source>
+                <target>Ingrese su nombre</target>
+            </trans-unit>
+
+            <trans-unit id="3">
+                <source>User.lastName.not_blank</source>
+                <target>Ingrese su apellido</target>
+            </trans-unit>
+
+            <trans-unit id="4">
+                <source>User.email.not_blank</source>
+                <target>Ingrese un correo valido</target>
+            </trans-unit>
+
+            <trans-unit id="5">
+                <source>User.password.not_blank</source>
+                <target>Ingrese una contraseña valida</target>
+            </trans-unit>
+
+            <trans-unit id="6">
+                <source>User.role.not_blank</source>
+                <target>seleccione un rol</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

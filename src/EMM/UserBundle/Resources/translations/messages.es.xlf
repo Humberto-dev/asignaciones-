@@ -63,7 +63,7 @@
             </trans-unit>
 
             <trans-unit id="13">
-                <source>Administator</source>
+                <source>Administrator</source>
                 <target>Administrador</target>
             </trans-unit>
 
@@ -102,6 +102,108 @@
                 <target>Crear usuario</target>
             </trans-unit>
             
+             <trans-unit id="21">
+                <source>Created</source>
+                <target>Creado</target>
+            </trans-unit>
+
+             <trans-unit id="22">
+                <source>Updated</source>
+                <target>Actualizado</target>
+            </trans-unit>
+
+             <trans-unit id="23">
+                <source>Actions</source>
+                <target>Acciones</target>
+            </trans-unit>
+
+             <trans-unit id="24">
+                <source>View</source>
+                <target>Ver</target>
+            </trans-unit>
+
+             <trans-unit id="25">
+                <source>Edit</source>
+                <target>Editar</target>
+            </trans-unit>
+
+             <trans-unit id="26">
+                <source>Delete</source>
+                <target>Borrar</target>
+            </trans-unit>
+
+            <trans-unit id="27">
+                <source>The user has been created.</source>
+                <target>El usuario a sido creado correctamente</target>
+            </trans-unit>
+
+             <trans-unit id="28">
+                <source>Total recods:</source>
+                <target>Total de usuarios:</target>
+            </trans-unit>
+
+            <trans-unit id="29">
+                <source>Previous</source>
+                <target>Anterior</target>
+            </trans-unit>
+
+            <trans-unit id="30">
+                <source>Next</source>
+                <target>Siguiente</target>
+            </trans-unit>
+
+            <trans-unit id="31">
+                <source>User not found.</source>
+                <target>Usuario no encontrado.</target>
+            </trans-unit>
+
+            <trans-unit id="32">
+                <source>Edit user</source>
+                <target>Editar usuario</target>
+            </trans-unit>
+
+             <trans-unit id="33">
+                <source>Update user</source>
+                <target>Actualizar usuario</target>
+            </trans-unit>
+
+             <trans-unit id="34">
+                <source>The user has been modified.</source>
+                <target>El usuario ha sido modificado con exito</target>
+            </trans-unit>
+
+            <trans-unit id="35">
+                <source>please define a password.</source>
+                <target>por favor define una contraseña.</target>
+            </trans-unit>
+
+            <trans-unit id="36">
+                <source>Enabled</source>
+                <target>Habilitado</target>
+            </trans-unit>
+
+            <trans-unit id="37">
+                <source>Dislabled</source>
+                <target>Deshabilitado</target>
+            </trans-unit>
+
+            <trans-unit id="38">
+                <source>Delete user</source>
+                <target>Eliminar usuario</target>
+            </trans-unit>
+
+            <trans-unit id="39">
+                <source>The user has been delete</source>
+                <target>El usuario ha sido eliminado con exito</target>
+            </trans-unit>
+
+            <trans-unit id="40">
+                <source>Are you sure?</source>
+                <target>Estas seguro?</target>
+            </trans-unit>
+
+
+
         </body>
     </file>
 </xliff>     

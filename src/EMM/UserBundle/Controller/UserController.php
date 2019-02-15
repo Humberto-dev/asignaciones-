@@ -34,6 +34,7 @@ class UserController extends Controller
         ); 
 
         $deleteFormAjax= $this->createCustomForm(':USER_ID', 'DELETE', 'emm_user_delete');
+
         return $this->render('EMMUserBundle:User:index.html.twig', array('pagination'=>$pagination,
                     'delete_form_ajax'=>$deleteFormAjax->createView()));
     }
@@ -117,7 +118,8 @@ class UserController extends Controller
                      array('user'=>$user,'form'=>$form->createView()));
     }
 
-    private function recoverPass($id){
+    private function recoverPass($id)
+    {
         $em = $this->getDoctrine()->getManager();
         $query = $em->createQuery(
             'SELECT u.password
@@ -128,6 +130,7 @@ class UserController extends Controller
              $currentPass= $query->getResult();
              return $currentPass;
     }
+
     public function viewAction($id)
     {
         $repository= $this->getDoctrine()->getRepository('EMMUserBundle:User');
@@ -137,9 +140,9 @@ class UserController extends Controller
             $messageExeption= $this->get('translator')->trans('User not found');
             throw $this->createNotFoundException($menssageExeption);
         }
-
-        $deleteForm= $this->createDeleteForm($user);
-
+        //Refactorizamos aqui para reciclar codigo 
+        //$deleteForm= $this->createDeleteForm($user);
+        $deleteForm = $this->createCustomForm($user->getId(), 'DELETE', 'emm_user_delete');
         return $this->render('EMMUserBundle:User:view.html.twig', array('user'=>$user, 
                              'delete_form'=>$deleteForm->createView()));
     }
@@ -163,19 +166,62 @@ class UserController extends Controller
             throw $this->createNotFoundException($exceptionMessage);
         }
 
-        $form= $this->createDeleteForm($user);
+        //para obtener el total de registros en a tabla uasuario 
+        $allUser= $em->getRepository('EMMUserBundle:User')->findAll();
+        $countUser= count($allUser);
+
+        //$form= $this->createDeleteForm($user);
+        $form = $this->createCustomForm($user->getId(), 'DELETE', 'emm_user_delete');
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
 
-            $em->remove($user);
-            $em->flush();
+            //con este condicional establezco la validacion y la forma de trabajar con ajax
+            if($request->isXMLHttpRequest()){
 
-            $successMessage= $this->get('translator')->trans('The user has been delete');
-            $this->addflash('mensaje',$successMessage);
+                $res= $this->deleteUser($user->getRole(),$em,$user);
+
+                return new Response(
+                    json_encode(array('remove'=>$res['remove'],'message'=>$res['message'],'countUser'=>$countUser)),
+                    200,array('Content-Type'=>'application/json')
+                );
+            }
+            //Esta comentado por refactorizacion
+            //$em->remove($user);
+            //$em->flush();
+            //$successMessage= $this->get('translator')->trans('The user has been delete');
+
+            //Al crear el metodo deleteUser() es posible reciclarlo para eliminar un usuario en diferentes acciones 
+            $res= $this->deleteUser($user->getRole(), $em, $user);
+
+            //sustituimos el mesage por el que ya esta construido en el metodo delteUser el cual es 
+            //retornado en un arreglo
+            $this->addflash($res['alert'],$res['message']);
+            //$this->addflash('message',$successMessage);
+
             return $this->redirectToRoute('emm_user_index');
 
         }
+    }
+
+    private function deleteUser($role, $em, $user)
+    {
+        if($role =='ROLE_USER'){
+                $em->remove($user);
+                $em->flush();
+
+                $message= $this->get('translator')->trans('The user has been delete.');
+                $remove= 1;
+                $alert='mensaje';
+
+        }elseif($role == 'ROLE_ADMIN'){
+
+                $message = $this->get('translator')->trans('The user could not be delete.');
+                $remove= 0;
+                $alert= 'error';
+        }
+
+        return array('message'=>$message, 'remove'=>$remove, 'alert'=>$alert);
     }
 
     private function createCustomForm($id, $method, $route)

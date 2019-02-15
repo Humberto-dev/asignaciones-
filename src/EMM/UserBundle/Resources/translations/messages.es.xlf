@@ -193,14 +193,20 @@
             </trans-unit>
 
             <trans-unit id="39">
-                <source>The user has been delete</source>
-                <target>El usuario ha sido eliminado con exito</target>
+                <source>The user has been delete.</source>
+                <target>El usuario ha sido eliminado con exito.</target>
             </trans-unit>
 
             <trans-unit id="40">
                 <source>Are you sure?</source>
                 <target>Estas seguro?</target>
             </trans-unit>
+
+            <trans-unit id="41">
+                <source>The user could not be delete.</source>
+                <target>El usuario no puede ser eliminado.</target>
+            </trans-unit>
+
 
 
 

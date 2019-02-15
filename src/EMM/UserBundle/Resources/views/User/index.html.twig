@@ -1,15 +1,16 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
+    {{ parent() }}
     {{ include('EMMUserBundle:User:messages/success.html.twig') }}  
-   
+    {{ include('EMMUserBundle:User:messages/danger.html.twig') }}  
     <div class="container">
         <div class="col-md-12">
             <div class="page-header margin-none">
                 <h2 class="padding-none">{% trans %}Users{% endtrans %}</h2>
             </div>
             <div class="table-responsive">
-               {% trans %} Total recods:{% endtrans %} {{ pagination.getTotalItemCount }}
+               {% trans %} Total recods:{% endtrans %} <span id="total">{{ pagination.getTotalItemCount }}</span>
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
@@ -26,7 +27,7 @@
                     </thead>
                     <tbody>
                      {% for user in pagination %}
-                        <tr id="{{  user.id }}">
+                        <tr data-id="{{  user.id }}">
                             <td>{{ user.username }}</td>
                             <td>{{ user.firstname}}</td>
                             <td>{{ user.lastname}}</td>
